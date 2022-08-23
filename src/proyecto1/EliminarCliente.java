@@ -197,16 +197,16 @@ public class EliminarCliente extends javax.swing.JFrame {
 
     private void BuscarEliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarEliActionPerformed
     long idi = Long.parseLong(IdCliente.getText());
-        //System.out.println(ArregloUsu[0].getContraseña());
-//       for (int i = 0; i < ArregloUsu.length; i++) {
-//           if(ArregloUsu[i]!=null){
-//             if(ArregloUsu[i].getId() == idi ){
-//             NombreCliente.setText(ArregloUsu[i].getNombreUsuario());
-//             ApellidoCliente.setText(ArregloUsu[i].getApellidoUsuario());
-//                 //System.out.println(ArregloUsu[i].getId());
-//             }
-//                }
-//       }
+        System.out.println(ArregloUsu[0].getContraseña());
+       for (int i = 0; i < ArregloUsu.length; i++) {
+           if(ArregloUsu[i]!=null){
+             if(ArregloUsu[i].getId() == idi ){
+             NombreCliente.setText(ArregloUsu[i].getNombreUsuario());
+             ApellidoCliente.setText(ArregloUsu[i].getApellidoUsuario());
+                 //System.out.println(ArregloUsu[i].getId());
+             }
+                }
+       }
         // TODO add your handling code here:
     }//GEN-LAST:event_BuscarEliActionPerformed
 
