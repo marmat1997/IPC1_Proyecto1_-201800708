@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package proyecto1;
+import javax.swing.JOptionPane;
 import static proyecto1.principal.ArregloUsu;
 /**
  *
@@ -163,16 +164,18 @@ public class EliminarCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void EliminarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarClienteActionPerformed
-        //long eli = Long.parseLong(IdCliente.getText());
-//        for (int i = 0; i < ArregloUsu.length; i++) {
-//            if(ArregloUsu[i]!=null){
-//             if(ArregloUsu[i].getId() == eli ){
-//             NombreCliente.setText(ArregloUsu[i].getNombreUsuario());
-//             ApellidoCliente.setText(ArregloUsu[i].getApellidoUsuario());
-//                 //System.out.println(ArregloUsu[i].getId());
-//             }
-//            }
-//                }
+        long eli = Long.parseLong(IdCliente.getText());
+        for (int i = 0; i < ArregloUsu.length; i++) {
+            if(ArregloUsu[i]!=null){
+             if(ArregloUsu[i].getId() == eli ){
+               ArregloUsu[i]=null;
+               //ArregloUsu[i].setNombreUsuario("null");
+               //ArregloUsu[i].setId();
+               //ArregloUsu[i].setContraseña("null");   
+                //System.out.println(ArregloUsu[i].getId());
+            }
+            }
+               }
         // TODO add your handling code here:
     }//GEN-LAST:event_EliminarClienteActionPerformed
 
@@ -197,7 +200,7 @@ public class EliminarCliente extends javax.swing.JFrame {
 
     private void BuscarEliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarEliActionPerformed
     long idi = Long.parseLong(IdCliente.getText());
-        System.out.println(ArregloUsu[0].getContraseña());
+        //System.out.println(ArregloUsu[0].getContraseña());
        for (int i = 0; i < ArregloUsu.length; i++) {
            if(ArregloUsu[i]!=null){
              if(ArregloUsu[i].getId() == idi ){
@@ -205,8 +208,12 @@ public class EliminarCliente extends javax.swing.JFrame {
              ApellidoCliente.setText(ArregloUsu[i].getApellidoUsuario());
                  //System.out.println(ArregloUsu[i].getId());
              }
+//             else{
+//             JOptionPane.showMessageDialog(null,"Usuario no existe","Error de login",JOptionPane.ERROR_MESSAGE);
+//             }
                 }
        }
+       JOptionPane.showMessageDialog(null,"Usuario no existe","Error de login",JOptionPane.ERROR_MESSAGE);
         // TODO add your handling code here:
     }//GEN-LAST:event_BuscarEliActionPerformed
 
