@@ -136,6 +136,11 @@ public class Pantalla1Admin extends javax.swing.JFrame {
         ModificarUsuario.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         ModificarUsuario.setForeground(new java.awt.Color(34, 49, 64));
         ModificarUsuario.setText("Modificar");
+        ModificarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ModificarUsuarioActionPerformed(evt);
+            }
+        });
 
         VerUsuario.setBackground(new java.awt.Color(116, 128, 140));
         VerUsuario.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -278,8 +283,6 @@ public class Pantalla1Admin extends javax.swing.JFrame {
         });
 
         imagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyecto1/taker.jpg"))); // NOI18N
-        imagen.setMaximumSize(new java.awt.Dimension(92, 92));
-        imagen.setMinimumSize(new java.awt.Dimension(92, 92));
         imagen.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 imagenMouseClicked(evt);
@@ -390,6 +393,12 @@ JFileChooser JFileChooser = new JFileChooser();
         }
         // TODO add your handling code here:
     }//GEN-LAST:event_imagenMouseClicked
+
+    private void ModificarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarUsuarioActionPerformed
+    this.setVisible(false);
+    new ModificarCliente().setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ModificarUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
