@@ -142,7 +142,7 @@ public class VerCliente extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        JTable.getModel();
        DefaultTableModel modelo = (DefaultTableModel)JTable.getModel();
-        for (int i = 0; i < ArregloUsu.length; i++) {
+        for (int i = 1; i < ArregloUsu.length; i++) {
            if(ArregloUsu[i]!=null){
              String[] fila = {String.valueOf(i),String.valueOf(ArregloUsu[i].getId()),ArregloUsu[i].getNombreUsuario(), ArregloUsu[i].getApellidoUsuario(), ArregloUsu[i].getContraseña()};
                  //NombreCliente.setText(ArregloUsu[i].getNombreUsuario());

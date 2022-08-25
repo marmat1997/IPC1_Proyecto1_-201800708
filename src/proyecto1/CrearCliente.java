@@ -34,6 +34,7 @@ public void Creacion(long id, String NombreUsuario, String ApellidoUsuario){
             System.out.println(ArregloUsu[i].getContraseña());
             System.out.println(ArregloUsu[i].getId());
             System.out.println(ArregloUsu[i].getNombreUsuario());
+            JOptionPane.showMessageDialog(null,"Usuario creado con exito, la contraseña es: "+tempC,"Usuario Creado", JOptionPane.INFORMATION_MESSAGE);
             //ArregloUsu[i].setId("d"); //Usuarios(idi, NombreUsuario, ApellidoUsuario);
 //           if(ArregloUsu[i].getId() == id){
 //             if(ArregloUsu[i].getContraseña().equals(Contraseña)){
