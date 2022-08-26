@@ -8,59 +8,126 @@ import java.awt.Color;
 import javax.swing.JOptionPane;
 import static proyecto1.principal.ArregloUsu;
 //import static proyecto1.CrearCliente.ArregloUsu;
+
 public class Login extends javax.swing.JFrame {
+
     //public static Usuarios [] ArregloUsu = new Usuarios [11];
     public Login() {
         initComponents();
-        this.setSize(452,332);
+        this.setSize(452, 332);
         this.setLocationRelativeTo(null);
         //new principal().setVisible(true);
         // public static Usuarios [] ArregloUsu = new Usuarios [11];
-       //ArregloUsu[0]= new Usuarios(1024, "admin","","root");
+        //ArregloUsu[0]= new Usuarios(1024, "admin","","root");
     }
-public void validacion(long id, String Contraseña){
-    //System.out.println(ArregloUsu[1].getId());
-    //System.out.println(id +" "+ Contraseña);
-    ArregloUsu[0]= new Usuarios(1024, "admin","","root"); 
-   // System.out.println(ArregloUsu[0].getContraseña());
-    for (int i = 0; i < ArregloUsu.length; i++) {
-        if (ArregloUsu[i] != null) {
-            if(ArregloUsu[i].getId() == id){
-           //if(ArregloUsu[i].getId() == id){
-             if(ArregloUsu[i].getContraseña().equals(Contraseña)){
-            
-                 //System.out.println("Contraseña correcta");
-                 if(id == 1024){
-                     System.out.println(ArregloUsu[0].getContraseña());
-                    JOptionPane.showMessageDialog(null,"Bienvenido administrador","Bienvenido",JOptionPane.INFORMATION_MESSAGE);
-                    Pantalla1Admin admin = new Pantalla1Admin();
-                    admin.setVisible(true);
-                    this.setVisible(false);
-                 }
-                 else{
-                  JOptionPane.showMessageDialog(null,"Bienvenido usuario","Bienvenido",JOptionPane.INFORMATION_MESSAGE); 
-                    PantallaCliente clien = new PantallaCliente();
-                    this.setVisible(false);
-                    clien.setVisible(true);
-                 }
-             }
-             else{
-             System.out.println(ArregloUsu[i].getContraseña());   
-             JOptionPane.showMessageDialog(null,"Contraseña incorrecta","Error de login",JOptionPane.ERROR_MESSAGE);
 
-             }
-            }
-            //else{
-            //JOptionPane.showMessageDialog(null,"Usuario no existe","Error de login",JOptionPane.ERROR_MESSAGE);
-            
-            //}
+    public void validacion(long id, String Contraseña) {
+        //System.out.println(ArregloUsu[1].getId());
+        //System.out.println(id +" "+ Contraseña);
+        ArregloUsu[0] = new Usuarios(1024, "admin", "", "root");
+        // System.out.println(ArregloUsu[0].getContraseña());
+       
+        if (buscarLogin(id)>=0) {
+            int posicion = buscarLogin(id);
+            if (ArregloUsu[posicion].getContraseña().equals(Contraseña)) {
+                    if (id == 1024) {
+                        System.out.println(ArregloUsu[0].getContraseña());
+                        JOptionPane.showMessageDialog(null, "Bienvenido administrador", "Bienvenido", JOptionPane.INFORMATION_MESSAGE);
+                        Pantalla1Admin admin = new Pantalla1Admin();
+                        admin.setVisible(true);
+                        this.setVisible(false);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Bienvenido usuario", "Bienvenido", JOptionPane.INFORMATION_MESSAGE);
+                        PantallaCliente clien = new PantallaCliente();
+                        this.setVisible(false);
+                        clien.setVisible(true);          
+                    }
+            }else{
+                //System.out.println(ArregloUsu[i].getContraseña());
+                JOptionPane.showMessageDialog(null, "Contraseña incorrecta", "Error de login", JOptionPane.ERROR_MESSAGE);
+            } 
+        }else{
+            JOptionPane.showMessageDialog(null, "Usuario no existe", "Error de login", JOptionPane.ERROR_MESSAGE); 
         }
-        else {
-        break;
-        }
+        
+//        for (int i = 0; i < ArregloUsu.length; i++) {
+//            if (buscarLogin(id)) {
+//                if (ArregloUsu[i].getContraseña().equals(Contraseña)) {
+//                    //System.out.println("Contraseña correcta");
+//                    if (id == 1024) {
+//                        System.out.println(ArregloUsu[0].getContraseña());
+//                        JOptionPane.showMessageDialog(null, "Bienvenido administrador", "Bienvenido", JOptionPane.INFORMATION_MESSAGE);
+//                        Pantalla1Admin admin = new Pantalla1Admin();
+//                        admin.setVisible(true);
+//                        this.setVisible(false);
+//                        break;
+//                    } else {
+//                        JOptionPane.showMessageDialog(null, "Bienvenido usuario", "Bienvenido", JOptionPane.INFORMATION_MESSAGE);
+//                        PantallaCliente clien = new PantallaCliente();
+//                        this.setVisible(false);
+//                        clien.setVisible(true);
+//                        break;
+//                    }
+//                } else {
+//                    System.out.println(ArregloUsu[i].getContraseña());
+//                    JOptionPane.showMessageDialog(null, "Contraseña incorrecta", "Error de login", JOptionPane.ERROR_MESSAGE);
+//                   // break;
+//                }
+//            } else {
+//                JOptionPane.showMessageDialog(null, "Usuario no existe", "Error de login", JOptionPane.ERROR_MESSAGE);
+//            }
+//        }
     }
-    JOptionPane.showMessageDialog(null,"Usuario no existe","Error de login",JOptionPane.ERROR_MESSAGE);
-}
+//            if (ArregloUsu[i] != null) {
+//                if (ArregloUsu[i].getId() == id) {
+//                    //if(ArregloUsu[i].getId() == id){
+//                    if (ArregloUsu[i].getContraseña().equals(Contraseña)) {
+//                        //System.out.println("Contraseña correcta");
+//                        if (id == 1024) {
+//                            System.out.println(ArregloUsu[0].getContraseña());
+//                            JOptionPane.showMessageDialog(null, "Bienvenido administrador", "Bienvenido", JOptionPane.INFORMATION_MESSAGE);
+//                            Pantalla1Admin admin = new Pantalla1Admin();
+//                            admin.setVisible(true);
+//                            this.setVisible(false);
+//                            break;
+//                        } else {
+//                            JOptionPane.showMessageDialog(null, "Bienvenido usuario", "Bienvenido", JOptionPane.INFORMATION_MESSAGE);
+//                            PantallaCliente clien = new PantallaCliente();
+//                            this.setVisible(false);
+//                            clien.setVisible(true);
+//                            break;
+//                        }
+//                    } else {
+//                        System.out.println(ArregloUsu[i].getContraseña());
+//                        JOptionPane.showMessageDialog(null, "Contraseña incorrecta", "Error de login", JOptionPane.ERROR_MESSAGE);
+//                        break;
+//                    }
+//                } else {
+//                    continue;
+//                }
+//            } else {
+//                break;
+//            }
+//        }
+//        JOptionPane.showMessageDialog(null, "Usuario no existe", "Error de login", JOptionPane.ERROR_MESSAGE);
+
+
+    private int buscarLogin(long id) {
+        int respuesta = -1;
+        for (int i = 0; i < ArregloUsu.length; i++) {
+            if (ArregloUsu[i] != null) {
+                if (ArregloUsu[i].getId() == id) {
+                    respuesta = i;
+                } else {
+                    continue;
+                }
+            } else {
+                break;
+            }
+        }
+        return respuesta;
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -230,7 +297,7 @@ public void validacion(long id, String Contraseña){
     }//GEN-LAST:event_passActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-    System.exit(0);
+        System.exit(0);
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -254,32 +321,32 @@ public void validacion(long id, String Contraseña){
 //    pass.setText("");
 //    usu.requestFocus();
 //    }
-long idi = Long.parseLong(usu.getText());
-String con = pass.getText().trim();
+        long idi = Long.parseLong(usu.getText());
+        String con = pass.getText().trim();
 //System.out.println("con= "+con);
 //System.out.println("idi= "+idi);
-validacion(idi,con);
+        validacion(idi, con);
 
     }//GEN-LAST:event_IngresarActionPerformed
 
     private void CloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CloseMouseClicked
-     System.exit(0);  
+        System.exit(0);
         // TODO add your handling code here:
     }//GEN-LAST:event_CloseMouseClicked
 
     private void minMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minMouseClicked
-this.setState(Login.ICONIFIED);
+        this.setState(Login.ICONIFIED);
         // TODO add your handling code here:
     }//GEN-LAST:event_minMouseClicked
 
     private void CloseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CloseMouseEntered
-       Close.setBackground(Color.red);
+        Close.setBackground(Color.red);
         // TODO add your handling code here:
     }//GEN-LAST:event_CloseMouseEntered
 
     private void CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarActionPerformed
-    this.setVisible(false);
-    new principal().setVisible(true);
+        this.setVisible(false);
+        new principal().setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_CancelarActionPerformed
 
@@ -318,7 +385,7 @@ this.setState(Login.ICONIFIED);
         });
     }
 
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Cancelar;
     private javax.swing.JLabel Close;

@@ -163,7 +163,9 @@ public class VerCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_minMouseClicked
 
     private void CloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CloseMouseClicked
-        System.exit(0);
+        //System.exit(0);
+        this.setVisible(false);
+        new Pantalla1Admin().setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_CloseMouseClicked
 

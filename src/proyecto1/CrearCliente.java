@@ -24,6 +24,26 @@ public void Creacion(long id, String NombreUsuario, String ApellidoUsuario){
     //System.out.println(id);
     //System.out.println(NombreUsuario);
     //System.out.println(ApellidoUsuario);
+    boolean r1= true;
+    princ: //
+    for (int i = 0; i < ArregloUsu.length; i++){
+        if (ArregloUsu[i] != null){
+            if(ArregloUsu[i].getId() == id){
+                JOptionPane.showMessageDialog(null,"Cuenta Existe","Error de login",JOptionPane.ERROR_MESSAGE);
+                r1 = false;
+                break;
+            }else{
+                continue;
+            }
+        }else{
+            break;
+        }
+           //         else{
+           // r1 = true;
+            //}     
+    }
+    
+    if(r1 == true){
     for (int i = 0; i < ArregloUsu.length; i++) {
         //System.out.println("For");
         if (ArregloUsu[i] == null) {
@@ -63,6 +83,10 @@ return;
 //        }
     }
   
+}
+    else{
+    
+    }
 }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
