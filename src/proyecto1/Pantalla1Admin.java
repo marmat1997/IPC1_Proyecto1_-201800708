@@ -165,6 +165,11 @@ public class Pantalla1Admin extends javax.swing.JFrame {
         NuevaCuenta.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         NuevaCuenta.setForeground(new java.awt.Color(34, 49, 64));
         NuevaCuenta.setText("Nueva Cuenta");
+        NuevaCuenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NuevaCuentaActionPerformed(evt);
+            }
+        });
 
         DepositarCuenta.setBackground(new java.awt.Color(116, 128, 140));
         DepositarCuenta.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -401,6 +406,12 @@ JFileChooser JFileChooser = new JFileChooser();
     new ModificarCliente().setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_ModificarUsuarioActionPerformed
+
+    private void NuevaCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NuevaCuentaActionPerformed
+    this.setVisible(false);
+    new CrearCuenta().setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NuevaCuentaActionPerformed
 
     /**
      * @param args the command line arguments
