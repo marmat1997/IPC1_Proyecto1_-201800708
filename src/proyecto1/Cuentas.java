@@ -9,37 +9,48 @@ package proyecto1;
  * @author marma
  */
 public class Cuentas {
+    public static int id = 1000;
+    private double debito =0; // saldo a favor
+    private double credito =0; // saldo ncontra
+    private double total = 0;   //total de la cuena
+    private Transacciones [] transaccione= new Transacciones[15];
 
-    public Cuentas(int id, String NombreCuenta, int Saldo) {
-        this.id = id;
-        this.NombreCuenta = NombreCuenta;
-        this.Saldo = Saldo;
+    public Cuentas(double debito) {
+        this.debito=debito;
+        this.id+=1;
     }
 
-    public int getId() {
-        return id;
+    public double getDebito() {
+        return debito;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setDebito(double debito) {
+        this.debito = debito;
     }
 
-    public String getNombreCuenta() {
-        return NombreCuenta;
+    public double getCredito() {
+        return credito;
     }
 
-    public void setNombreCuenta(String NombreCuenta) {
-        this.NombreCuenta = NombreCuenta;
+    public void setCredito(double credito) {
+        this.credito = credito;
     }
 
-    public int getSaldo() {
-        return Saldo;
+    public double getTotal() {
+        return total;
     }
 
-    public void setSaldo(int Saldo) {
-        this.Saldo = Saldo;
+    public void setTotal(double total) {
+        this.total = total;
     }
-    int id;
-    public String NombreCuenta;
-    public int Saldo;
+
+    @Override
+    public String toString() {
+        return "Cuentas{" + "debito=" + debito + ", credito=" + credito + ", total=" + total + '}';
+    }
+    
+    
+   
+    
+
 }

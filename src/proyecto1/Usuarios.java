@@ -4,7 +4,8 @@
  */
 package proyecto1;
 public class Usuarios {
-    
+public Cuentas[] cuentas = new Cuentas[3];
+
 private long id;
 public String NombreUsuario;
 public String ApellidoUsuario;

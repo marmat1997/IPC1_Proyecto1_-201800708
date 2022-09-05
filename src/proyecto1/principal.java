@@ -10,7 +10,7 @@ package proyecto1;
  */
 public class principal extends javax.swing.JFrame {
 public static Usuarios [] ArregloUsu = new Usuarios [11];
-public static Cuentas [] ArregloCuentas = new Cuentas [30];
+//public static Cuentas [] ArregloCuentas = new Cuentas [3];
     /**
      * Creates new form principal
      */

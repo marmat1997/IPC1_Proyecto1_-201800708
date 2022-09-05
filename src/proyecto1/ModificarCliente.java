@@ -41,7 +41,6 @@ public class ModificarCliente extends javax.swing.JFrame {
         BuscarModi = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
 
         Guardar.setBackground(new java.awt.Color(116, 128, 140));
         Guardar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
