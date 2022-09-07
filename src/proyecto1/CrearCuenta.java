@@ -50,6 +50,7 @@ public class CrearCuenta extends javax.swing.JFrame {
         Nombre = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(34, 49, 63));
 
@@ -166,9 +167,8 @@ public class CrearCuenta extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(Nombre, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(IdCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)
-                                .addComponent(SaldoInicial)))))
+                            .addComponent(IdCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)
+                            .addComponent(SaldoInicial))))
                 .addGap(56, 56, 56))
         );
         layout.setVerticalGroup(
@@ -256,12 +256,15 @@ public class CrearCuenta extends javax.swing.JFrame {
             if (posicion >= 0) {
                 for (int i = 0; i < ArregloUsu[posicion].cuentas.length; i++) {
                     if (ArregloUsu[posicion].cuentas != null) {
-                        ArregloUsu[posicion].cuentas[i] = new Cuentas(Double.parseDouble(SaldoInicial.getText()));
                         if(Double.parseDouble(SaldoInicial.getText()) > 100){
+                        ArregloUsu[posicion].cuentas[i] = new Cuentas(Double.parseDouble(SaldoInicial.getText()));
+                       // if(Double.parseDouble(SaldoInicial.getText()) > 100){
                         aux = true;
                         //return aux;
                             System.out.println(aux);
                         System.out.println(Double.parseDouble(SaldoInicial.getText()));
+                        JOptionPane.showMessageDialog(null, "Cuenta Creada", "Bienvenido", JOptionPane.INFORMATION_MESSAGE);
+                        System.out.println(ArregloUsu[posicion].cuentas[i]);
                         break;  
                         }
                         else{
