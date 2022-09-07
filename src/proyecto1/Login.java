@@ -49,69 +49,8 @@ public class Login extends javax.swing.JFrame {
         }else{
             JOptionPane.showMessageDialog(null, "Usuario no existe", "Error de login", JOptionPane.ERROR_MESSAGE); 
         }
-        
-//        for (int i = 0; i < ArregloUsu.length; i++) {
-//            if (buscarLogin(id)) {
-//                if (ArregloUsu[i].getContraseña().equals(Contraseña)) {
-//                    //System.out.println("Contraseña correcta");
-//                    if (id == 1024) {
-//                        System.out.println(ArregloUsu[0].getContraseña());
-//                        JOptionPane.showMessageDialog(null, "Bienvenido administrador", "Bienvenido", JOptionPane.INFORMATION_MESSAGE);
-//                        Pantalla1Admin admin = new Pantalla1Admin();
-//                        admin.setVisible(true);
-//                        this.setVisible(false);
-//                        break;
-//                    } else {
-//                        JOptionPane.showMessageDialog(null, "Bienvenido usuario", "Bienvenido", JOptionPane.INFORMATION_MESSAGE);
-//                        PantallaCliente clien = new PantallaCliente();
-//                        this.setVisible(false);
-//                        clien.setVisible(true);
-//                        break;
-//                    }
-//                } else {
-//                    System.out.println(ArregloUsu[i].getContraseña());
-//                    JOptionPane.showMessageDialog(null, "Contraseña incorrecta", "Error de login", JOptionPane.ERROR_MESSAGE);
-//                   // break;
-//                }
-//            } else {
-//                JOptionPane.showMessageDialog(null, "Usuario no existe", "Error de login", JOptionPane.ERROR_MESSAGE);
-//            }
-//        }
     }
-//            if (ArregloUsu[i] != null) {
-//                if (ArregloUsu[i].getId() == id) {
-//                    //if(ArregloUsu[i].getId() == id){
-//                    if (ArregloUsu[i].getContraseña().equals(Contraseña)) {
-//                        //System.out.println("Contraseña correcta");
-//                        if (id == 1024) {
-//                            System.out.println(ArregloUsu[0].getContraseña());
-//                            JOptionPane.showMessageDialog(null, "Bienvenido administrador", "Bienvenido", JOptionPane.INFORMATION_MESSAGE);
-//                            Pantalla1Admin admin = new Pantalla1Admin();
-//                            admin.setVisible(true);
-//                            this.setVisible(false);
-//                            break;
-//                        } else {
-//                            JOptionPane.showMessageDialog(null, "Bienvenido usuario", "Bienvenido", JOptionPane.INFORMATION_MESSAGE);
-//                            PantallaCliente clien = new PantallaCliente();
-//                            this.setVisible(false);
-//                            clien.setVisible(true);
-//                            break;
-//                        }
-//                    } else {
-//                        System.out.println(ArregloUsu[i].getContraseña());
-//                        JOptionPane.showMessageDialog(null, "Contraseña incorrecta", "Error de login", JOptionPane.ERROR_MESSAGE);
-//                        break;
-//                    }
-//                } else {
-//                    continue;
-//                }
-//            } else {
-//                break;
-//            }
-//        }
-//        JOptionPane.showMessageDialog(null, "Usuario no existe", "Error de login", JOptionPane.ERROR_MESSAGE);
-
-
+    
     private int buscarLogin(long id) {
         int respuesta = -1;
         for (int i = 0; i < ArregloUsu.length; i++) {
@@ -302,31 +241,9 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void IngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IngresarActionPerformed
-//    String usuario = "admin";
-//    String password = "password";
-//    String root = "root";
-//    if(usu.getText().equals(usuario)&&pass.getText().equals(password) || usu.getText().equals(usuario)&&pass.getText().equals(root) ){
-//       Pantalla1Admin admin = new Pantalla1Admin();
-//      admin.setVisible(true);
-//    }
-//    else if(usu.getText().equals(usuario)&& !pass.getText().equals(password)) {
-// JOptionPane.showMessageDialog(null,"Contraseña invalida","Error de login",JOptionPane.ERROR_MESSAGE);
-//    usu.setText("");
-//    pass.setText("");
-//    usu.requestFocus();
-//    }
-//    else {
-//    JOptionPane.showMessageDialog(null,"Usuario no existe","Error de login",JOptionPane.ERROR_MESSAGE);
-//    usu.setText("");
-//    pass.setText("");
-//    usu.requestFocus();
-//    }
         long idi = Long.parseLong(usu.getText());
         String con = pass.getText().trim();
-//System.out.println("con= "+con);
-//System.out.println("idi= "+idi);
         validacion(idi, con);
-
     }//GEN-LAST:event_IngresarActionPerformed
 
     private void CloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CloseMouseClicked

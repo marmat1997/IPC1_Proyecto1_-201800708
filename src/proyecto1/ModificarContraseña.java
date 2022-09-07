@@ -5,17 +5,19 @@
 package proyecto1;
 
 import java.awt.Color;
+import javax.swing.JOptionPane;
+import static proyecto1.principal.ArregloUsu;
 
 /**
  *
  * @author marma
  */
-public class PantallaCliente extends javax.swing.JFrame {
+public class ModificarContraseña extends javax.swing.JFrame {
 
     /**
-     * Creates new form PantallaCliente
+     * Creates new form ModificarContraseña
      */
-    public PantallaCliente() {
+    public ModificarContraseña() {
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -29,31 +31,25 @@ public class PantallaCliente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Salir = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         min1 = new javax.swing.JLabel();
         Close1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        pass = new javax.swing.JTextField();
+        nueva1 = new javax.swing.JTextField();
+        nueva2 = new javax.swing.JTextField();
+        Boton = new javax.swing.JButton();
+        usu = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-
-        Salir.setBackground(new java.awt.Color(255, 51, 51));
-        Salir.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        Salir.setText("Salir");
-        Salir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SalirActionPerformed(evt);
-            }
-        });
 
         jPanel1.setBackground(new java.awt.Color(34, 49, 63));
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Engravers MT", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Cliente");
+        jLabel1.setText("Modificar contraseña");
 
         min1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         min1.setForeground(new java.awt.Color(255, 255, 255));
@@ -83,8 +79,8 @@ public class PantallaCliente extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 155, Short.MAX_VALUE)
                 .addComponent(min1)
                 .addGap(18, 18, 18)
                 .addComponent(Close1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -101,45 +97,63 @@ public class PantallaCliente extends javax.swing.JFrame {
                 .addGap(11, 11, 11))
         );
 
-        jButton1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Cambiar Contraseña");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        pass.setText("Contraseña Actual");
+        pass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                passActionPerformed(evt);
             }
         });
+
+        nueva1.setText("Contraseña Nueva");
+
+        nueva2.setText("Confirmar Contraseña");
+
+        Boton.setText("Aceptar");
+        Boton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonActionPerformed(evt);
+            }
+        });
+
+        usu.setText("Su id");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(166, 166, 166)
+                .addComponent(Boton, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Salir, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(nueva1)
+                    .addComponent(pass)
+                    .addComponent(nueva2, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE)
+                    .addComponent(usu))
+                .addGap(203, 203, 203))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addComponent(Salir)
-                .addGap(52, 52, 52)
-                .addComponent(jButton1)
-                .addContainerGap(101, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(usu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14)
+                .addComponent(pass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(nueva1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(nueva2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(Boton, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
-        this.setVisible(false);
-        new Login().setVisible(true);
-    }//GEN-LAST:event_SalirActionPerformed
 
     private void min1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_min1MouseClicked
         this.setState(Login.ICONIFIED);
@@ -149,7 +163,7 @@ public class PantallaCliente extends javax.swing.JFrame {
     private void Close1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Close1MouseClicked
         //System.exit(0);
         this.setVisible(false);
-        new Pantalla1Admin().setVisible(true);
+        new PantallaCliente().setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_Close1MouseClicked
 
@@ -158,10 +172,56 @@ public class PantallaCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_Close1MouseEntered
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    new ModificarContraseña ().setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void passActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_passActionPerformed
 
+    private void BotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonActionPerformed
+        long idi = Long.parseLong(usu.getText());
+        String con = pass.getText().trim();
+        validacion(idi, con);    
+    }//GEN-LAST:event_BotonActionPerformed
+    public void validacion(long id, String Contraseña) {
+        //ArregloUsu[0] = new Usuarios(1024, "admin", "", "root");
+        if (buscarLogin(id)>=0) {
+            int posicion = buscarLogin(id);
+            if (ArregloUsu[posicion].getContraseña().equals(Contraseña)) {
+                String N1C = nueva1.getText();
+                String N2C = nueva2.getText();
+                    if (nueva1.getText().equals(nueva2.getText())) {
+                      ArregloUsu[posicion].setContraseña(N2C);
+                      this.setVisible(false);
+                      new Login().setVisible(true);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Bienvenido usuario", "Bienvenido", JOptionPane.INFORMATION_MESSAGE);
+                        PantallaCliente clien = new PantallaCliente();
+                        this.setVisible(false);
+                        clien.setVisible(true);          
+                    }
+            }else{
+                //System.out.println(ArregloUsu[i].getContraseña());
+                JOptionPane.showMessageDialog(null, "Contraseña incorrecta", "Error de login", JOptionPane.ERROR_MESSAGE);
+            } 
+        }else{
+            JOptionPane.showMessageDialog(null, "Usuario no existe", "Error de login", JOptionPane.ERROR_MESSAGE); 
+        }
+    }
+    
+        private int buscarLogin(long id) {
+        int respuesta = -1;
+        for (int i = 0; i < ArregloUsu.length; i++) {
+            if (ArregloUsu[i] != null) {
+                if (ArregloUsu[i].getId() == id) {
+                    respuesta = i;
+                } else {
+                    continue;
+                }
+            } else {
+                break;
+            }
+        }
+        return respuesta;
+    }
     /**
      * @param args the command line arguments
      */
@@ -179,30 +239,33 @@ public class PantallaCliente extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PantallaCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModificarContraseña.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PantallaCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModificarContraseña.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PantallaCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModificarContraseña.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PantallaCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModificarContraseña.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PantallaCliente().setVisible(true);
+                new ModificarContraseña().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Boton;
     private javax.swing.JLabel Close1;
-    private javax.swing.JButton Salir;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel min1;
+    private javax.swing.JTextField nueva1;
+    private javax.swing.JTextField nueva2;
+    private javax.swing.JTextField pass;
+    private javax.swing.JTextField usu;
     // End of variables declaration//GEN-END:variables
 }
