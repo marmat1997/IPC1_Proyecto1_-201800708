@@ -39,7 +39,6 @@ public class ModificarContraseña extends javax.swing.JFrame {
         nueva1 = new javax.swing.JTextField();
         nueva2 = new javax.swing.JTextField();
         Boton = new javax.swing.JButton();
-        usu = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -115,8 +114,6 @@ public class ModificarContraseña extends javax.swing.JFrame {
             }
         });
 
-        usu.setText("Su id");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -131,17 +128,14 @@ public class ModificarContraseña extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(nueva1)
                     .addComponent(pass)
-                    .addComponent(nueva2, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE)
-                    .addComponent(usu))
+                    .addComponent(nueva2, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE))
                 .addGap(203, 203, 203))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(usu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14)
+                .addGap(45, 45, 45)
                 .addComponent(pass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(nueva1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -161,9 +155,9 @@ public class ModificarContraseña extends javax.swing.JFrame {
     }//GEN-LAST:event_min1MouseClicked
 
     private void Close1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Close1MouseClicked
-        //System.exit(0);
+        
         this.setVisible(false);
-        new PantallaCliente().setVisible(true);
+        new Login().setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_Close1MouseClicked
 
@@ -177,34 +171,34 @@ public class ModificarContraseña extends javax.swing.JFrame {
     }//GEN-LAST:event_passActionPerformed
 
     private void BotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonActionPerformed
-        long idi = Long.parseLong(usu.getText());
+        //long idi = Long.parseLong(usu.getText());
         String con = pass.getText().trim();
-        validacion(idi, con);    
+        validacion(con);    
     }//GEN-LAST:event_BotonActionPerformed
-    public void validacion(long id, String Contraseña) {
+    public void validacion(String Contraseña) {
         //ArregloUsu[0] = new Usuarios(1024, "admin", "", "root");
-        if (buscarLogin(id)>=0) {
-            int posicion = buscarLogin(id);
-            if (ArregloUsu[posicion].getContraseña().equals(Contraseña)) {
+        //if (buscarLogin(id)>=0) {
+            //int posicion = buscarLogin(id);
+            if (ArregloUsu[Login.ubicacion_usuario].getContraseña().equals(Contraseña)) {
                 String N1C = nueva1.getText();
                 String N2C = nueva2.getText();
                     if (nueva1.getText().equals(nueva2.getText())) {
-                      ArregloUsu[posicion].setContraseña(N2C);
+                      ArregloUsu[Login.ubicacion_usuario].setContraseña(N2C);
                       this.setVisible(false);
                       new Login().setVisible(true);
                     } else {
-                        JOptionPane.showMessageDialog(null, "Bienvenido usuario", "Bienvenido", JOptionPane.INFORMATION_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden", "Error de login", JOptionPane.ERROR_MESSAGE);
                         PantallaCliente clien = new PantallaCliente();
-                        this.setVisible(false);
-                        clien.setVisible(true);          
+//                        this.setVisible(false);
+//                        clien.setVisible(true);          
                     }
             }else{
                 //System.out.println(ArregloUsu[i].getContraseña());
                 JOptionPane.showMessageDialog(null, "Contraseña incorrecta", "Error de login", JOptionPane.ERROR_MESSAGE);
             } 
-        }else{
-            JOptionPane.showMessageDialog(null, "Usuario no existe", "Error de login", JOptionPane.ERROR_MESSAGE); 
-        }
+//        }else{
+//            JOptionPane.showMessageDialog(null, "Usuario no existe", "Error de login", JOptionPane.ERROR_MESSAGE); 
+//        }
     }
     
         private int buscarLogin(long id) {
@@ -266,6 +260,5 @@ public class ModificarContraseña extends javax.swing.JFrame {
     private javax.swing.JTextField nueva1;
     private javax.swing.JTextField nueva2;
     private javax.swing.JTextField pass;
-    private javax.swing.JTextField usu;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,19 +5,40 @@
 package proyecto1;
 
 import java.awt.Color;
+import javax.swing.table.DefaultTableModel;
+import static proyecto1.principal.ArregloUsu;
+      // DefaultTableModel modelo = (DefaultTableModel)JTable.getModel();
 
 /**
  *
  * @author marma
  */
 public class PantallaCliente extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form PantallaCliente
      */
     public PantallaCliente() {
         initComponents();
         this.setLocationRelativeTo(null);
+        String nombre=ArregloUsu[Login.ubicacion_usuario].NombreUsuario;
+        String apellido=ArregloUsu[Login.ubicacion_usuario].ApellidoUsuario;
+        cliente.setText(nombre+" "+apellido);
+
+            DefaultTableModel modelo = (DefaultTableModel)JTable.getModel();
+            for (int i = 0; i < ArregloUsu[Login.ubicacion_usuario].cuentas.length; i++) {
+           if(ArregloUsu[Login.ubicacion_usuario].cuentas[i]!=null){
+            String[] fila = {String.valueOf(i+1),String.valueOf(ArregloUsu[Login.ubicacion_usuario].cuentas[i].getId()),String.valueOf(ArregloUsu[Login.ubicacion_usuario].cuentas[i].getTotal())};
+            System.out.println(ArregloUsu[Login.ubicacion_usuario].cuentas[i].getDebito()+" ID: "+ ArregloUsu[Login.ubicacion_usuario].cuentas[i].getId());
+                 //NombreCliente.setText(ArregloUsu[i].getNombreUsuario());
+                 //ApellidoCliente.setText(ArregloUsu[i].getApellidoUsuario());
+                 //System.out.println(ArregloUsu[i].getId());
+                modelo.addRow(fila);
+//             else{
+//             JOptionPane.showMessageDialog(null,"Usuario no existe","Error de login",JOptionPane.ERROR_MESSAGE);
+//             }
+                }
+       }
     }
 
     /**
@@ -31,10 +52,15 @@ public class PantallaCliente extends javax.swing.JFrame {
 
         Salir = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        cliente = new javax.swing.JLabel();
         min1 = new javax.swing.JLabel();
         Close1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        JTable = new javax.swing.JTable();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -50,10 +76,10 @@ public class PantallaCliente extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(34, 49, 63));
 
-        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setFont(new java.awt.Font("Engravers MT", 0, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Cliente");
+        cliente.setBackground(new java.awt.Color(255, 255, 255));
+        cliente.setFont(new java.awt.Font("Engravers MT", 0, 24)); // NOI18N
+        cliente.setForeground(new java.awt.Color(255, 255, 255));
+        cliente.setText("Cliente");
 
         min1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         min1.setForeground(new java.awt.Color(255, 255, 255));
@@ -82,9 +108,9 @@ public class PantallaCliente extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
+                .addGap(65, 65, 65)
+                .addComponent(cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(min1)
                 .addGap(18, 18, 18)
                 .addComponent(Close1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -95,7 +121,7 @@ public class PantallaCliente extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(min1)
                     .addComponent(Close1))
                 .addGap(11, 11, 11))
@@ -110,27 +136,67 @@ public class PantallaCliente extends javax.swing.JFrame {
             }
         });
 
+        JTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "NO.", "Cuenta", "Saldo"
+            }
+        ));
+        jScrollPane1.setViewportView(JTable);
+
+        jButton2.setText("jButton2");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setText("jButton3");
+
+        jButton4.setText("jButton4");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Salir, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(64, 64, 64)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButton2)
+                        .addGap(43, 43, 43)
+                        .addComponent(jButton3)
+                        .addGap(34, 34, 34)
+                        .addComponent(jButton4)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Salir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addComponent(Salir)
-                .addGap(52, 52, 52)
-                .addComponent(jButton1)
-                .addContainerGap(101, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton3)
+                    .addComponent(jButton4)
+                    .addComponent(jButton2))
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(Salir)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
 
         pack();
@@ -147,10 +213,8 @@ public class PantallaCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_min1MouseClicked
 
     private void Close1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Close1MouseClicked
-        //System.exit(0);
         this.setVisible(false);
-        new Pantalla1Admin().setVisible(true);
-        // TODO add your handling code here:
+        new Login().setVisible(true);
     }//GEN-LAST:event_Close1MouseClicked
 
     private void Close1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Close1MouseEntered
@@ -159,8 +223,28 @@ public class PantallaCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_Close1MouseEntered
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    new ModificarContraseña ().setVisible(true);
+        this.setVisible(false);
+        new ModificarContraseña ().setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+//             DefaultTableModel modelo = (DefaultTableModel)JTable.getModel();
+//              for (int i = 0; i < ArregloUsu[Login.ubicacion_usuario].cuentas.length; i++) {
+//           if(ArregloUsu[Login.ubicacion_usuario].cuentas[i]!=null){
+//             String[] fila = {String.valueOf(i+1),String.valueOf(ArregloUsu[Login.ubicacion_usuario].cuentas[i].getDebito()),ArregloUsu[i].getNombreUsuario()};
+//               System.out.println(ArregloUsu[Login.ubicacion_usuario].cuentas[i].getDebito()+" "+ ArregloUsu[i].getNombreUsuario());
+//                 //NombreCliente.setText(ArregloUsu[i].getNombreUsuario());
+//                 //ApellidoCliente.setText(ArregloUsu[i].getApellidoUsuario());
+//                 //System.out.println(ArregloUsu[i].getId());
+//                modelo.addRow(fila);
+////             else{
+////             JOptionPane.showMessageDialog(null,"Usuario no existe","Error de login",JOptionPane.ERROR_MESSAGE);
+////             }
+//                }
+//       }
+       
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -193,16 +277,22 @@ public class PantallaCliente extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new PantallaCliente().setVisible(true);
+               
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Close1;
+    private javax.swing.JTable JTable;
     private javax.swing.JButton Salir;
+    private javax.swing.JLabel cliente;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel min1;
     // End of variables declaration//GEN-END:variables
 }

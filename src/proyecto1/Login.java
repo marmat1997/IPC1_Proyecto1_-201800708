@@ -10,7 +10,7 @@ import static proyecto1.principal.ArregloUsu;
 //import static proyecto1.CrearCliente.ArregloUsu;
 
 public class Login extends javax.swing.JFrame {
-
+    public static int ubicacion_usuario;
     //public static Usuarios [] ArregloUsu = new Usuarios [11];
     public Login() {
         initComponents();
@@ -38,6 +38,7 @@ public class Login extends javax.swing.JFrame {
                         this.setVisible(false);
                     } else {
                         JOptionPane.showMessageDialog(null, "Bienvenido usuario", "Bienvenido", JOptionPane.INFORMATION_MESSAGE);
+                        ubicacion_usuario=buscarLogin(id);
                         PantallaCliente clien = new PantallaCliente();
                         this.setVisible(false);
                         clien.setVisible(true);          

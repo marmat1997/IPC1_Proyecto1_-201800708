@@ -175,6 +175,11 @@ public class Pantalla1Admin extends javax.swing.JFrame {
         DepositarCuenta.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         DepositarCuenta.setForeground(new java.awt.Color(34, 49, 64));
         DepositarCuenta.setText("Deposito Cuenta");
+        DepositarCuenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DepositarCuentaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -412,6 +417,12 @@ JFileChooser JFileChooser = new JFileChooser();
     new CrearCuenta().setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_NuevaCuentaActionPerformed
+
+    private void DepositarCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DepositarCuentaActionPerformed
+    this.setVisible(false);
+    new Deposito().setVisible(true);
+        
+    }//GEN-LAST:event_DepositarCuentaActionPerformed
 
     /**
      * @param args the command line arguments

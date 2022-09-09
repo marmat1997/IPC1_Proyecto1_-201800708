@@ -1,23 +1,18 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package proyecto1;
-
-/**
- *
- * @author marma
- */
 public class Cuentas {
-    public static int id = 1000;
+    public  static int id = 1000;
+    private int idCuenta;
     private double debito =0; // saldo a favor
     private double credito =0; // saldo ncontra
-    private double total = 0;   //total de la cuena
+    private double total = debito - credito;   //total de la cuena
     private Transacciones [] transaccione= new Transacciones[15];
 
     public Cuentas(double debito) {
         this.debito=debito;
+        idCuenta=id;
         this.id+=1;
+        
+        this.total= debito-credito;
     }
 
     public double getDebito() {
@@ -41,12 +36,20 @@ public class Cuentas {
     }
 
     public void setTotal(double total) {
-        this.total = total;
+        this.total = debito - credito;
     }
 
+    public int getId() {
+        return this.idCuenta;
+    }
+
+    public void setId(int id) {
+        this.idCuenta = id;
+    }
+    
     @Override
     public String toString() {
-        return "Cuentas{" + "debito=" + debito + ", credito=" + credito + ", total=" + total + '}';
+        return "Cuentas{" + "debito=" + debito + ", credito=" + credito + ", total=" + total + '}'+ "ID= "+this.idCuenta;
     }
     
     

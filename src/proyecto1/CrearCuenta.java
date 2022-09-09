@@ -255,9 +255,11 @@ public class CrearCuenta extends javax.swing.JFrame {
         try {    
             if (posicion >= 0) {
                 for (int i = 0; i < ArregloUsu[posicion].cuentas.length; i++) {
-                    if (ArregloUsu[posicion].cuentas != null) {
-                        if(Double.parseDouble(SaldoInicial.getText()) > 100){
+                    System.out.println(ArregloUsu[posicion].cuentas.length);
+                    if (ArregloUsu[posicion].cuentas[i] == null) {
+                        if(Double.parseDouble(SaldoInicial.getText()) >= 100){
                         ArregloUsu[posicion].cuentas[i] = new Cuentas(Double.parseDouble(SaldoInicial.getText()));
+                        //ArregloUsu[posicion].cuentas[i].;
                        // if(Double.parseDouble(SaldoInicial.getText()) > 100){
                         aux = true;
                         //return aux;
@@ -265,6 +267,9 @@ public class CrearCuenta extends javax.swing.JFrame {
                         System.out.println(Double.parseDouble(SaldoInicial.getText()));
                         JOptionPane.showMessageDialog(null, "Cuenta Creada", "Bienvenido", JOptionPane.INFORMATION_MESSAGE);
                         System.out.println(ArregloUsu[posicion].cuentas[i]);
+                        System.out.println(ArregloUsu[posicion].cuentas[0]);
+                        System.out.println(ArregloUsu[posicion].cuentas[1]);
+                        System.out.println(ArregloUsu[posicion].cuentas[2]);
                         break;  
                         }
                         else{
@@ -276,7 +281,7 @@ public class CrearCuenta extends javax.swing.JFrame {
 //                        aux = true;
 //                        break;
                     } else {
-                        break;
+                        continue;
                     }
 
                 }
