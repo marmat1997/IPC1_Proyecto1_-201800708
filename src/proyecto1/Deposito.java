@@ -256,6 +256,7 @@ public class Deposito extends javax.swing.JFrame {
     int noCuenta = obtenCuenta(datosCuenta);
     int posicion = noCuenta-1;
     ArregloUsu[posicion1].cuentas[posicion] = new Cuentas(monto+ArregloUsu[posicion1].cuentas[posicion].getDebito());
+    JOptionPane.showMessageDialog(null, "Deposito, saldo es de: "+ArregloUsu[posicion1].cuentas[posicion].getDebito(), "Deposito con exito", JOptionPane.INFORMATION_MESSAGE);
     System.out.println(ArregloUsu[1].cuentas[posicion]);
     System.out.println("BtmDeposito"+noCuenta+monto);
     }//GEN-LAST:event_DepositoActionPerformed
