@@ -19,6 +19,7 @@ public class Deposito extends javax.swing.JFrame {
      */
     public Deposito() {
         initComponents();
+        this.setLocationRelativeTo(null);
         this.jComboBox1.removeAllItems();
         this.jComboBox1.addItem("Cuentas");
     }
@@ -35,8 +36,14 @@ public class Deposito extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox<>();
         IdCliente = new javax.swing.JTextField();
         Saldo = new javax.swing.JTextField();
+        Deposito = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        CancelarCliente = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -62,28 +69,102 @@ public class Deposito extends javax.swing.JFrame {
             }
         });
 
+        Deposito.setBackground(new java.awt.Color(116, 128, 140));
+        Deposito.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        Deposito.setText("Depositar");
+        Deposito.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DepositoActionPerformed(evt);
+            }
+        });
+
+        jPanel2.setBackground(new java.awt.Color(34, 49, 63));
+
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("x");
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("-");
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        CancelarCliente.setBackground(new java.awt.Color(255, 51, 51));
+        CancelarCliente.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        CancelarCliente.setText("Cancelar");
+        CancelarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelarClienteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(124, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jComboBox1, 0, 186, Short.MAX_VALUE)
-                    .addComponent(IdCliente)
-                    .addComponent(Saldo))
-                .addGap(90, 90, 90))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(90, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jComboBox1, 0, 186, Short.MAX_VALUE)
+                            .addComponent(IdCliente)
+                            .addComponent(Saldo))
+                        .addGap(90, 90, 90))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(Deposito, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(CancelarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(74, 74, 74))))
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(55, 55, 55)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(IdCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addComponent(Saldo, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(116, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Deposito, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(CancelarCliente))
+                .addContainerGap(68, Short.MAX_VALUE))
         );
 
         pack();
@@ -104,24 +185,27 @@ public class Deposito extends javax.swing.JFrame {
 
     private void IdClienteFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_IdClienteFocusLost
          long idi = Long.parseLong(IdCliente.getText());  
-        int posicion = -1;
+        int posicion1 = -1;
         for (int i = 0; i < ArregloUsu.length; i++) {
             if (ArregloUsu[i] != null) {
                 if (ArregloUsu[i].getId() == idi) {
                     //Nombre.setText(ArregloUsu[i].getNombreUsuario() + " " + ArregloUsu[i].getApellidoUsuario());
-                    posicion = i;
+                    posicion1 = i;
                     //ApellidoCliente.setText(ArregloUsu[i].getApellidoUsuario());
                 }
             }
         }
             try {    
-            if (posicion >= 0) {
-                for (int i = 0; i < ArregloUsu[posicion].cuentas.length; i++) {
-                    System.out.println(ArregloUsu[posicion].cuentas.length);
-                    if (ArregloUsu[posicion].cuentas[i] != null) {
-                                            System.out.println(ArregloUsu[posicion].cuentas[i].getId());
-                                            
-                                           this.jComboBox1.addItem(Integer.toString(ArregloUsu[posicion].cuentas[i].getId()));
+            if (posicion1 >= 0) {
+                for (int i = 0; i < ArregloUsu[posicion1].cuentas.length; i++) {
+                    System.out.println(ArregloUsu[posicion1].cuentas.length);
+                    if (ArregloUsu[posicion1].cuentas[i] != null) {
+                                            System.out.println(ArregloUsu[posicion1].cuentas[i].getId());
+                                            String Idcuenta = String.valueOf(Integer.toString(ArregloUsu[posicion1].cuentas[i].getId())); //Nuevo
+                                            String Nombre = ArregloUsu[posicion1].getNombreUsuario()+" "+ArregloUsu[posicion1].getApellidoUsuario();
+                                           //this.jComboBox1.addItem(Integer.toString(ArregloUsu[posicion].cuentas[i].getId()));
+                                           int aux = i+1;
+                                           this.jComboBox1.addItem(aux + ". " + Idcuenta+" - "+ Nombre);
                     } else {
                         continue;
                     }
@@ -138,6 +222,61 @@ public class Deposito extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_IdClienteFocusLost
 
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        this.setVisible(false);
+        new Pantalla1Admin().setVisible(true);
+    }//GEN-LAST:event_jLabel1MouseClicked
+
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+        this.setState(Login.ICONIFIED);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel2MouseClicked
+
+    private void CancelarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarClienteActionPerformed
+        this.setVisible(false);
+        new Pantalla1Admin().setVisible(true);        // TODO add your handling code here:
+    }//GEN-LAST:event_CancelarClienteActionPerformed
+
+    private void DepositoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DepositoActionPerformed
+             long idi = Long.parseLong(IdCliente.getText());  
+        int posicion1 = -1;
+        for (int i = 0; i < ArregloUsu.length; i++) {
+            if (ArregloUsu[i] != null) {
+                if (ArregloUsu[i].getId() == idi) {
+                    //Nombre.setText(ArregloUsu[i].getNombreUsuario() + " " + ArregloUsu[i].getApellidoUsuario());
+                    posicion1 = i;
+                    //ApellidoCliente.setText(ArregloUsu[i].getApellidoUsuario());
+                }
+            }
+        }
+        String datosCuenta = this.jComboBox1.getSelectedItem().toString();
+//        System.out.println("datos "+datosCuenta);
+    String strMonto = this.Saldo.getText();
+    double monto = Double.parseDouble(strMonto);
+    int noCuenta = obtenCuenta(datosCuenta);
+    int posicion = noCuenta-1;
+    ArregloUsu[posicion1].cuentas[posicion] = new Cuentas(monto+ArregloUsu[posicion1].cuentas[posicion].getDebito());
+    System.out.println(ArregloUsu[1].cuentas[posicion]);
+    System.out.println("BtmDeposito"+noCuenta+monto);
+    }//GEN-LAST:event_DepositoActionPerformed
+  private int obtenCuenta(String datosCuenta) {
+    System.out.println("datos "+datosCuenta);
+    char[] extraeNoCuenta = datosCuenta.toCharArray();
+      System.out.println("parte1 "+extraeNoCuenta[0]);
+    String strNoCuenta = "";
+    System.out.println("Extraccion"+extraeNoCuenta[0]);
+    if(Character.isDigit(extraeNoCuenta[0])){
+        strNoCuenta = String.valueOf(extraeNoCuenta[0]);
+        System.out.println("Es digito"+strNoCuenta);
+    }
+//    for (int i = 0; i < extraeNoCuenta.length; i++) {
+//      if (Character.isDigit(extraeNoCuenta[i])){
+//        strNoCuenta = strNoCuenta + strNoCuenta;
+//      } 
+//    } 
+    int noCuenta = Integer.parseInt(strNoCuenta);
+    return noCuenta;
+  }
     /**
      * @param args the command line arguments
      */
@@ -174,8 +313,13 @@ public class Deposito extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton CancelarCliente;
+    private javax.swing.JButton Deposito;
     private javax.swing.JTextField IdCliente;
     private javax.swing.JTextField Saldo;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }

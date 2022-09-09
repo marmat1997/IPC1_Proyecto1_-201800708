@@ -24,7 +24,7 @@ public class Login extends javax.swing.JFrame {
     public void validacion(long id, String Contraseña) {
         //System.out.println(ArregloUsu[1].getId());
         //System.out.println(id +" "+ Contraseña);
-        ArregloUsu[0] = new Usuarios(1024, "admin", "", "root");
+        ArregloUsu[0] = new Usuarios(1024, "admin", "", "password");
         // System.out.println(ArregloUsu[0].getContraseña());
        
         if (buscarLogin(id)>=0) {
