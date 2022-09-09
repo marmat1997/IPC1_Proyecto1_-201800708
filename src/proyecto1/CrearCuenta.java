@@ -108,6 +108,11 @@ public class CrearCuenta extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel2.setText("ID Cliente");
 
+        IdCliente.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                IdClienteFocusLost(evt);
+            }
+        });
         IdCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 IdClienteActionPerformed(evt);
@@ -213,39 +218,12 @@ public class CrearCuenta extends javax.swing.JFrame {
     }//GEN-LAST:event_Close1MouseEntered
 
     private void CrearCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrearCuentaActionPerformed
-        int SP = Integer.parseInt(SaldoInicial.getText());
-        if (aux = true) {
-            JOptionPane.showMessageDialog(null, "Cuenta Creada", "Bienvenido", JOptionPane.INFORMATION_MESSAGE);
-        }
-        else if (aux = false) {
-          JOptionPane.showMessageDialog(null, "No se creo", "Error", JOptionPane.ERROR_MESSAGE);  
-        }
-    }//GEN-LAST:event_CrearCuentaActionPerformed
-    public void CreacionCuenta(int id, int SaldoPrincipal) {
-//   for(int i=0; i<ArregloCuentas.length;i++){
-//   if(ArregloCuentas[i]==null){
-//       ArregloCuentas[i]= new Cuentas(id,SaldoPrincipal);
-//   }
-//   }
-
-    }
-    private void CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarActionPerformed
-        this.setVisible(false);
-        new Pantalla1Admin().setVisible(true);
-// TODO add your handling code here:
-    }//GEN-LAST:event_CancelarActionPerformed
-
-    private void IdClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IdClienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_IdClienteActionPerformed
-
-    private void NombreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NombreMouseClicked
         long idi = Long.parseLong(IdCliente.getText());
         int posicion = -1;
         for (int i = 0; i < ArregloUsu.length; i++) {
             if (ArregloUsu[i] != null) {
                 if (ArregloUsu[i].getId() == idi) {
-                    Nombre.setText(ArregloUsu[i].getNombreUsuario() + " " + ArregloUsu[i].getApellidoUsuario());
+                    //Nombre.setText(ArregloUsu[i].getNombreUsuario() + " " + ArregloUsu[i].getApellidoUsuario());
                     posicion = i;
                     //ApellidoCliente.setText(ArregloUsu[i].getApellidoUsuario());
                 }
@@ -289,7 +267,82 @@ public class CrearCuenta extends javax.swing.JFrame {
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, "Ingrese Saldo", "Error", JOptionPane.ERROR_MESSAGE);
         }
+//        int SP = Integer.parseInt(SaldoInicial.getText());
+//        if (aux = true) {
+//            JOptionPane.showMessageDialog(null, "Cuenta Creada", "Bienvenido", JOptionPane.INFORMATION_MESSAGE);
+//        }
+//        else if (aux = false) {
+//          JOptionPane.showMessageDialog(null, "No se creo", "Error", JOptionPane.ERROR_MESSAGE);  
+//        }
+    }//GEN-LAST:event_CrearCuentaActionPerformed
+    public void CreacionCuenta(int id, int SaldoPrincipal) {
+//   for(int i=0; i<ArregloCuentas.length;i++){
+//   if(ArregloCuentas[i]==null){
+//       ArregloCuentas[i]= new Cuentas(id,SaldoPrincipal);
+//   }
+//   }
+
+    }
+    private void CancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarActionPerformed
+        this.setVisible(false);
+        new Pantalla1Admin().setVisible(true);
+// TODO add your handling code here:
+    }//GEN-LAST:event_CancelarActionPerformed
+
+    private void IdClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IdClienteActionPerformed
         // TODO add your handling code here:
+    }//GEN-LAST:event_IdClienteActionPerformed
+
+    private void NombreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NombreMouseClicked
+//        long idi = Long.parseLong(IdCliente.getText());
+//        int posicion = -1;
+//        for (int i = 0; i < ArregloUsu.length; i++) {
+//            if (ArregloUsu[i] != null) {
+//                if (ArregloUsu[i].getId() == idi) {
+//                    //Nombre.setText(ArregloUsu[i].getNombreUsuario() + " " + ArregloUsu[i].getApellidoUsuario());
+//                    posicion = i;
+//                    //ApellidoCliente.setText(ArregloUsu[i].getApellidoUsuario());
+//                }
+//            }
+//        }
+//        
+//        try {    
+//            if (posicion >= 0) {
+//                for (int i = 0; i < ArregloUsu[posicion].cuentas.length; i++) {
+//                    System.out.println(ArregloUsu[posicion].cuentas.length);
+//                    if (ArregloUsu[posicion].cuentas[i] == null) {
+//                        if(Double.parseDouble(SaldoInicial.getText()) >= 100){
+//                        ArregloUsu[posicion].cuentas[i] = new Cuentas(Double.parseDouble(SaldoInicial.getText()));
+//                        //ArregloUsu[posicion].cuentas[i].;
+//                       // if(Double.parseDouble(SaldoInicial.getText()) > 100){
+//                        aux = true;
+//                        //return aux;
+//                            System.out.println(aux);
+//                        System.out.println(Double.parseDouble(SaldoInicial.getText()));
+//                        JOptionPane.showMessageDialog(null, "Cuenta Creada", "Bienvenido", JOptionPane.INFORMATION_MESSAGE);
+//                        System.out.println(ArregloUsu[posicion].cuentas[i]);
+//                        System.out.println(ArregloUsu[posicion].cuentas[0]);
+//                        System.out.println(ArregloUsu[posicion].cuentas[1]);
+//                        System.out.println(ArregloUsu[posicion].cuentas[2]);
+//                        break;  
+//                        }
+//                        else{
+//                        aux = false;
+//                            System.out.println(aux);
+//                            System.out.println(Double.parseDouble(SaldoInicial.getText()));
+//                        }
+//                        //System.out.println(ArregloUsu[posicion].cuentas[i]);
+////                        aux = true;
+////                        break;
+//                    } else {
+//                        continue;
+//                    }
+//
+//                }
+//            }
+//        }catch(Exception e){
+//            JOptionPane.showMessageDialog(null, "Ingrese Saldo", "Error", JOptionPane.ERROR_MESSAGE);
+//        }
     }//GEN-LAST:event_NombreMouseClicked
 
     private void NombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombreActionPerformed
@@ -304,6 +357,20 @@ public class CrearCuenta extends javax.swing.JFrame {
 //        }
         // TODO add your handling code here:
     }//GEN-LAST:event_NombreActionPerformed
+
+    private void IdClienteFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_IdClienteFocusLost
+            long idi = Long.parseLong(IdCliente.getText());
+        int posicion = -1;
+        for (int i = 0; i < ArregloUsu.length; i++) {
+            if (ArregloUsu[i] != null) {
+                if (ArregloUsu[i].getId() == idi) {
+                    Nombre.setText(ArregloUsu[i].getNombreUsuario() + " " + ArregloUsu[i].getApellidoUsuario());
+                    posicion = i;
+                    //ApellidoCliente.setText(ArregloUsu[i].getApellidoUsuario());
+                }
+            }
+        }
+    }//GEN-LAST:event_IdClienteFocusLost
 
     /**
      * @param args the command line arguments

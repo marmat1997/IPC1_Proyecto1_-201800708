@@ -18,12 +18,6 @@ public class CrearCliente extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
     }
 public void Creacion(long id, String NombreUsuario, String ApellidoUsuario){
-    //System.out.println(ArregloUsu[0].getId());
-  //int idi = id;
-  //Usuarios NuevoUsuario = new Usuarios(id, NombreUsuario, ApellidoUsuario)
-    //System.out.println(id);
-    //System.out.println(NombreUsuario);
-    //System.out.println(ApellidoUsuario);
     boolean r1= true;
     princ: //
     for (int i = 0; i < ArregloUsu.length; i++){
@@ -38,9 +32,6 @@ public void Creacion(long id, String NombreUsuario, String ApellidoUsuario){
         }else{
             break;
         }
-           //         else{
-           // r1 = true;
-            //}     
     }
     
     if(r1 == true){
@@ -55,32 +46,8 @@ public void Creacion(long id, String NombreUsuario, String ApellidoUsuario){
             System.out.println(ArregloUsu[i].getId());
             System.out.println(ArregloUsu[i].getNombreUsuario());
             JOptionPane.showMessageDialog(null,"Usuario creado con exito, la contraseña es: "+tempC,"Usuario Creado", JOptionPane.INFORMATION_MESSAGE);
-            //ArregloUsu[i].setId("d"); //Usuarios(idi, NombreUsuario, ApellidoUsuario);
-//           if(ArregloUsu[i].getId() == id){
-//             if(ArregloUsu[i].getContraseña().equals(Contraseña)){
-//            
-//                 //System.out.println("Contraseña correcta");
-//                 if(id == 1024){
-//                    JOptionPane.showMessageDialog(null,"Bienvenido administrador","Bienvenido",JOptionPane.INFORMATION_MESSAGE);
-//                    Pantalla1Admin admin = new Pantalla1Admin();
-//                    admin.setVisible(true);  
-//                 }
-//                 else{
-//                 }
-//             }
-//             else{
-//             System.out.println(ArregloUsu[i].getContraseña());   
-//             JOptionPane.showMessageDialog(null,"Contraseña incorrecta","Error de login",JOptionPane.ERROR_MESSAGE);    
-//             }
-//            }
-//            else{
-//            JOptionPane.showMessageDialog(null,"Usuario no existe","Error de login",JOptionPane.ERROR_MESSAGE);
-//            }
 return;
         }
-//        else {
-//        break;
-//        }
     }
   
 }
